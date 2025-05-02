@@ -31,20 +31,12 @@ public class Main {
 class Solution {
     public int findMaximum(int[] arr) {
         // code here
-        int low = 0;
-        int high = arr.length-1;
         int n = arr.length;
-        int mid=0;
-        while(low<=high)
+        for(int i = 1 ; i < n - 1 ; i++)
         {
-             mid = (low+high)/2;
-            if((mid==0 || arr[mid]>arr[mid-1]) && (mid==n-1 || arr[mid]>arr[mid+1]))
-            return arr[mid];
-            else if(mid!=n-1 && arr[mid]<arr[mid+1])
-            low = mid+1;
-            else
-            high = mid-1;
+            if(arr[i - 1] < arr[i] && arr[ i ] > arr[ i + 1 ])
+            return arr[i];
         }
-        return arr[mid];
+        return 0;
     }
 }
