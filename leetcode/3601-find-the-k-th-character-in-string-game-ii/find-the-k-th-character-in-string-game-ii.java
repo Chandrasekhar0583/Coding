@@ -18,13 +18,15 @@ class Solution {
         {
             return 0;
         }
-        if(ind == 1)
+        if(k == 1)
         {
             return arr[0];
         }
-        long half = pow / 2;
+        long half = pow /2;
         if(k <= half)
-        return fun( k  , arr , ind - 1, half);
-        return arr[ind  - 1] + fun( k - half , arr , ind - 1, half );
+        {
+            return fun( k , arr , ind - 1 , half);
+        }
+        return arr[ind  - 1] + fun( k - half , arr , ind - 1 ,half);
     }
 }
