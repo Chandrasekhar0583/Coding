@@ -18,15 +18,14 @@ class FindSumPairs {
     public void add(int index, int val) {
         int x = arr2[index];
         arr2[index] += val;
-            map.put(arr2[index] ,  map.getOrDefault(arr2[index] , 0) + 1);
-        if(map.containsKey(x)){
+        map.put(arr2[index] ,  map.getOrDefault(arr2[index] , 0) + 1);
         if(map.get(x) == 1)
         {
             map.remove(x);
         }
         else{
             map.put(x , map.get(x) - 1);
-        }}
+        }
     }
     public int count(int tot) {
         int count = 0;
