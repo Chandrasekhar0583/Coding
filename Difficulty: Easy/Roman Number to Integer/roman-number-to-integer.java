@@ -1,0 +1,29 @@
+class Solution {
+    public int romanToDecimal(String s) {
+        // code here
+        HashMap<Character , Integer> map = new HashMap<>();
+        map.put('I' , 1);
+        map.put('V' , 5);
+        map.put('X' , 10);
+        map.put('L' , 50);
+        map.put('C' , 100);
+        map.put('D' , 500);
+        map.put('M' , 1000);
+        int i = 0 ; 
+        int res = 0;
+        while(i < s.length())
+        {
+            int x = map.get(s.charAt(i));
+            if(i + 1 < s.length() && map.get(s.charAt(i + 1)) > x)
+            {
+                res += map.get(s.charAt(i + 1)) - x;
+                i = i + 2;
+            }
+            else{
+                res += x;
+                i++;
+            }
+        }
+        return res;
+    }
+}
