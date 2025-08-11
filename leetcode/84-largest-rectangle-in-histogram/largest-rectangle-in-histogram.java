@@ -2,8 +2,7 @@ class Solution {
     public int largestRectangleArea(int[] heights) {
         Stack<Integer> stk = new Stack<>();
         int n = heights.length;
-        int i = 0 , j = 0;
-        int min = Integer.MAX_VALUE;
+        int i = 0 ;
         int next[] = new int[n];
         int prev[] = new int[n];
         int res = 0;
