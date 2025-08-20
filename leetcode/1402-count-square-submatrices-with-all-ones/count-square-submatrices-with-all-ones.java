@@ -8,7 +8,7 @@ class Solution {
         {
             Arrays.fill(dp[i],-1);
         }
-        count += Count(0,0,matrix,dp,n,m);
+        count = Count(0,0,matrix,dp,n,m);
         count = 0;
         for(int i []:dp)
         {
@@ -33,15 +33,14 @@ class Solution {
             int b = Count(i+1 , j+1 , matrix,dp,n,m);
             int c = Count(i , j+1 , matrix,dp,n,m);
             cnt += Math.min(a,Math.min(b,c));
-
             dp[i][j] = cnt;
             return dp[i][j];
         }
         else{
             dp[i][j] = 0;
         }
-           dp[i][j] += Math.min(matrix[i][j],Count(i , j+1 , matrix,dp,n,m));
-           dp[i][j] += Math.min(matrix[i][j],Count(i+1 , j , matrix,dp,n,m));
+          int c = Count(i , j+1 , matrix,dp,n,m);
+          int y = Count(i+1 , j , matrix,dp,n,m);
         return dp[i][j] ;
     }
 }
