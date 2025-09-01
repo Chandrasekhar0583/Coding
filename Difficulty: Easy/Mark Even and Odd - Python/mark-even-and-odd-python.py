@@ -1,8 +1,6 @@
-def checkOddEven(x):
-    if (x % 2 == 0 and x != 1):
-        # Complete the statement below
-        return True
+# @param x: int
+# @return: string
 
-    else:
-        # Complete the statement below
-        return False
+def checkOddEven(x):
+    # code here
+    return "Even" if(x & 1)  == 0 else "Odd"
