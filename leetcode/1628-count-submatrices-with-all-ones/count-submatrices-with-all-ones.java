@@ -16,6 +16,7 @@ class Solution {
                     arr[j]++;
                 }
             }
+            // System.out.println(Arrays.toString(arr));
             for(int j = 0 ; j < m ; j++)
             {
                 int min = arr[j];
