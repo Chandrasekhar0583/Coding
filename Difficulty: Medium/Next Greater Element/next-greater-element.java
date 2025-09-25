@@ -4,19 +4,22 @@ class Solution {
         Stack<Integer> stk = new Stack<>();
         int n = arr.length;
         ArrayList<Integer> res = new ArrayList<>();
-         for (int i = 0; i < n; i++) {
-            res.add(-1);
-        }
-        for(int i = n - 1 ; i >= 0 ; i--)
+        for(int i = n - 1 ; i >= 0 ; i-- )
         {
-            while(!stk.isEmpty() && arr[i] >= stk.peek())
+            while(!stk.isEmpty() && stk.peek() <= arr[i])
             {
                 stk.pop();
             }
-            if(!stk.isEmpty())
-            res.set(i,stk.peek());
+            if(stk.isEmpty())
+            {
+                res.add(-1);
+            }
+            else{
+                res.add(stk.peek());
+            }
             stk.push(arr[i]);
         }
+        Collections.reverse(res);
         return res;
     }
 }
