@@ -13,38 +13,34 @@ class Node {
 class Solution {
     public Node intersectPoint(Node head1, Node head2) {
         // code here
-        int x = len(head1);
-        int y = len(head2);
-        if(y > x)
-        {
-            int r = y - x;
-            while(r > 0)
-            {
-                r--;
-                head2 = head2.next;
-            }
-        }
-        else if(x > y)
-        {
-            int r =  x - y;
-            while(r > 0)
-            {
-                r--;
+        int h1 = height(head1);
+        int h2 = height(head2);
+        
+        int x = Math.abs(h1 - h2);
+        
+        if(h1 > h2){
+            while(x-- > 0){
                 head1 = head1.next;
             }
         }
-        while(head1 != null && head2 != null)
-        {
-            if(head1 == head2) return head1;
-            head1 = head1.next;
+        else{
+            while(x-- > 0){
+                head2 = head2.next;
+            }
+        } 
+        
+        while(head1 != head2){
+            head1 = head1.next ;
             head2 = head2.next;
         }
         return head1;
     }
-    public int len(Node head)
-    {
-        if(head == null) return 0;
-        
-        return len(head.next) + 1;
+    public int height(Node h1){
+        int count = 0;
+        while(h1 != null){
+            count++;
+            h1 = h1.next;
+        }
+        return count;
     }
 }
